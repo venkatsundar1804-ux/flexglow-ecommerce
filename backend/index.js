@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const dotenv = require('dotenv');
 const productRoutes = require('./routes/productRoutes');
 
 dotenv.config();
