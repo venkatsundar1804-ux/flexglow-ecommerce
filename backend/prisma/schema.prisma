@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  isAdmin   Boolean  @default(false)
+  addresses Json?
+  wishlist  Product[] @relation("UserWishlist")
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  name         String
+  brand        String   @default("FlexGlow")
+  price        Float
+  discount     Float    @default(0)
+  mrp          Float
+  images       String[]
+  rating       Float    @default(0)
+  numReviews   Int      @default(0)
+  description  String
+  ingredients  String?
+  benefits     String?
+  directions   String?
+  skinType     String?
+  weight       String?
+  availability String   @default("In Stock")
+  sku          String   @unique
+  category     String
+  users        User[]   @relation("UserWishlist")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Order {
+  id              String    @id @default(uuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  orderItems      Json
+  shippingAddress Json
+  paymentMethod   String
+  paymentResult   Json?
+  itemsPrice      Float     @default(0.0)
+  taxPrice        Float     @default(0.0)
+  shippingPrice   Float     @default(0.0)
+  totalPrice      Float     @default(0.0)
+  isPaid          Boolean   @default(false)
+  paidAt          DateTime?
+  isDelivered     Boolean   @default(false)
+  deliveredAt     DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}

@@ -1,12 +1,18 @@
-const Product = require('../models/Product');
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
+const formatProduct = (product) => {
+  const { id, ...rest } = product;
+  return { _id: id, id, ...rest };
+};
 
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.json(products);
+    const products = await prisma.product.findMany();
+    res.json(products.map(formatProduct));
   } catch (error) {
     res.status(500);
     throw new Error('Server Error');
@@ -18,9 +24,11 @@ const getProducts = async (req, res) => {
 // @access  Public
 const getProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
+    const product = await prisma.product.findUnique({
+      where: { id: req.params.id },
+    });
     if (product) {
-      res.json(product);
+      res.json(formatProduct(product));
     } else {
       res.status(404);
       throw new Error('Product not found');

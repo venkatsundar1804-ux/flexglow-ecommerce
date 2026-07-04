@@ -1,7 +1,4 @@
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const Product = require('./models/Product');
-const User = require('./models/User');
 
 dotenv.config();
 
@@ -348,16 +345,21 @@ const products = [
   }
 ];
 
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
+
 const seedDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/flexglow');
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    console.log('Connecting to PostgreSQL database...');
 
-    await Product.deleteMany();
-    await User.deleteMany();
+    await prisma.order.deleteMany();
+    await prisma.product.deleteMany();
+    await prisma.user.deleteMany();
 
-    const createdProducts = await Product.insertMany(products);
-    console.log(`${createdProducts.length} Products Imported!`);
+    const createdProducts = await prisma.product.createMany({
+      data: products
+    });
+    console.log(`${createdProducts.count} Products Imported!`);
 
     process.exit();
   } catch (error) {
