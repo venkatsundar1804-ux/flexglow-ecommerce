@@ -36,7 +36,7 @@ const Home = () => {
       <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1615397323161-5509c25bbaf6?q=80&w=2070&auto=format&fit=crop" 
+            src="/images/night_cream_jar.png" 
             alt="Premium Skincare" 
             className="w-full h-full object-cover object-center"
           />
@@ -106,9 +106,9 @@ const Home = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Skincare', img: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=1974&auto=format&fit=crop', link: '/categories/skincare' },
-              { name: 'Body Care', img: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=1953&auto=format&fit=crop', link: '/categories/bodycare' },
-              { name: 'Serums', img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1974&auto=format&fit=crop', link: '/categories/serums' },
+              { name: 'Skincare', img: '/images/rose_quartz_roller.png', link: '/categories/skincare' },
+              { name: 'Body Care', img: '/images/body_lotion_pump.png', link: '/categories/bodycare' },
+              { name: 'Serums', img: '/images/serum_yellow_bottle_1782982637214.png', link: '/categories/serums' },
             ].map((cat, idx) => (
               <Link key={idx} to={cat.link} className="group relative h-96 rounded-2xl overflow-hidden shadow-lg shadow-gray-200/50">
                 <img src={cat.img} alt={cat.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />

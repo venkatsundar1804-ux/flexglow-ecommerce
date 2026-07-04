@@ -7,56 +7,56 @@ const categories = [
   {
     id: 1,
     name: 'Face Serums',
-    image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop',
+    image: '/images/serum_yellow_bottle_1782982637214.png',
     description: 'Potent formulas for targeted results.',
     size: 'large'
   },
   {
     id: 2,
     name: 'Moisturizers',
-    image: 'https://images.unsplash.com/photo-1615397323161-5509c25bbaf6?q=80&w=800&auto=format&fit=crop',
+    image: '/images/night_cream_jar.png',
     description: 'Deep hydration for lasting glow.',
     size: 'small'
   },
   {
     id: 3,
     name: 'Skincare',
-    image: 'https://images.unsplash.com/photo-1570194065650-d99fb4b18b17?q=80&w=800&auto=format&fit=crop',
+    image: '/images/rose_quartz_roller.png',
     description: 'Your complete daily regimen.',
     size: 'small'
   },
   {
     id: 4,
     name: 'Makeup',
-    image: 'https://images.unsplash.com/photo-1596462502278-27bf84033005?q=80&w=800&auto=format&fit=crop',
+    image: '/images/foundation_premium.png',
     description: 'Flawless finish and radiant color.',
     size: 'medium'
   },
   {
     id: 5,
     name: 'Body Care',
-    image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop',
+    image: '/images/body_lotion_pump.png',
     description: 'Nourishing care from head to toe.',
     size: 'large'
   },
   {
     id: 6,
     name: 'Hair Care',
-    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop',
+    image: '/images/defense_shampoo.png',
     description: 'Restore shine and strength.',
     size: 'medium'
   },
   {
     id: 7,
     name: 'Gift Sets',
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800&auto=format&fit=crop',
+    image: '/images/gift_set_premium.png',
     description: 'Perfect bundles for every occasion.',
     size: 'small'
   },
   {
     id: 8,
     name: 'Sunscreens',
-    image: 'https://images.unsplash.com/photo-1556228720-1c2a4682c0a9?q=80&w=800&auto=format&fit=crop',
+    image: '/images/sunscreen_bottle.png',
     description: 'Essential daily UV protection.',
     size: 'small'
   }
